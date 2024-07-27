@@ -4,6 +4,7 @@ import AddCard from './AddCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPlus, faGripVertical, faRemove } from '@fortawesome/free-solid-svg-icons';
 import Filters from './Filters';
+import toast from 'react-hot-toast';
 
 const Content = () => {
     const [table, setTable] = useState([["", "", "", "", ""]]);
@@ -11,20 +12,24 @@ const Content = () => {
     const addRow = () => {
         const newRow = new Array(table[0].length).fill("");
         setTable([...table, newRow]);
+        toast.success('State Added');
     };
 
     const addColumn = () => {
         const newTable = table.map(row => [...row, ""]);
         setTable(newTable);
+        toast.success('State Added');
     };
 
     const deleteRow = (rowIndex) => {
         setTable(prevTable => prevTable.filter((_, index) => index !== rowIndex));
+        toast.success('Row Deleted');
     };
 
     const deleteColumn = (colIndex) => {
         const newTable = table.map(row => row.filter((_, index) => index !== colIndex));
         setTable(newTable);
+        toast.success('Column Deleted');
     };
 
     const handleDragStart = (e, index) => {
@@ -46,9 +51,9 @@ const Content = () => {
     };
 
     return (
-        <div className="p-4 overflow-auto rounded-lg max-w-[96vw] h-screen bg-slate-100 mt-8">
-            <div className="relative overflow-x-auto">
-                <div className="overflow-x-auto">
+        <div className="p-4 overflow-auto rounded-lg max-w-[96vw] h-screen bg-slate-100 mt-8 no-scrollbar">
+            <div className="relative overflow-x-auto no-scrollbar">
+                <div className="overflow-x-auto no-scrollbar">
                     <table className="min-w-full">
                         <thead>
                             <tr>
