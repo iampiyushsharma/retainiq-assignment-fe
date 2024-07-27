@@ -7,7 +7,7 @@ import { Data } from '../../utils/variantsData';
 const Modal = ({ isOpen, onClose, setImage }) => {
     if (!isOpen) return null;
 
-    const [variants, setVariants] = useState(Data);
+    const variants = Data;
 
     const handleCardClick = (variant) => {
         console.log(`Variant selected: ${variant}`);
