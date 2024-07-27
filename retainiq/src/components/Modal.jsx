@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faLink, faSearch, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Data } from '../../utils/variantsData';
 
-const Modal = ({ isOpen, onClose, setImage }) => {
+
+const Modal = ({ isOpen, onClose, setImage , variants }) => {
     if (!isOpen) return null;
 
-    const variants = Data;
+
 
     const handleCardClick = (variant) => {
         console.log(`Variant selected: ${variant}`);
@@ -16,9 +16,13 @@ const Modal = ({ isOpen, onClose, setImage }) => {
     };
 
     const handleInsertClick = (event, variant) => {
-        event.stopPropagation(); // Prevent the click from triggering the image click event
+        event.stopPropagation(); 
         handleCardClick(variant);
     };
+    let filteredVariants = false;
+    if (variants.length === 3) {
+        filteredVariants = true;
+    }
 
     return (
         <div className="fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -51,7 +55,11 @@ const Modal = ({ isOpen, onClose, setImage }) => {
                             key={index}
                             className="relative border border-gray-300 p-4 rounded-lg hover:shadow-md cursor-pointer"
                             onClick={() => handleCardClick(variant)}
-                        >
+                        >{filteredVariants ? <>
+                        <div>
+                            <div> {variant} </div>
+                        </div>
+                            </> : <>
                             <img
                                 src={variant}
                                 alt={variant}
@@ -67,6 +75,8 @@ const Modal = ({ isOpen, onClose, setImage }) => {
                                     <FontAwesomeIcon icon={faPlus} size="lg" className="text-gray-700 hover:text-gray-900" />
                                 </button>
                             </div>
+                            </>}
+                            
                         </div>
                     ))}
                 </div>

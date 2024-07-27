@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import Modal from './Modal'; // Adjust the import path as necessary
+import Modal from './Modal'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Data } from '../../utils/variantsData';
 
 const AddCard = ({ rowIndex, colIndex, table, setTable }) => {
     const [image, setImage] = useState(table[rowIndex][colIndex]);
@@ -44,7 +45,7 @@ const AddCard = ({ rowIndex, colIndex, table, setTable }) => {
                     )}
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} setImage={setImage} />
+            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} setImage={setImage} variants={Data} />
         </>
     );
 };
