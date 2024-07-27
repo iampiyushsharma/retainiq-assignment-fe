@@ -61,10 +61,11 @@ const Modal = ({ isOpen, onClose, setImage , variants }) => {
                         </div>
                             </> : <>
                             <img
-                                src={variant}
-                                alt={variant}
+                                src={variant[0]}
+
                                 className="w-full h-48 object-cover rounded-lg"
                             />
+                            <p className='justify-center text-center'>{variant[1]}</p>
                             <div
                                 className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
                             >
