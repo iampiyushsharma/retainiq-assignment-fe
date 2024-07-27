@@ -25,7 +25,7 @@ const Modal = ({ isOpen, onClose, setImage , variants }) => {
     }
 
     return (
-        <div className="fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-300 opacity-100  z-30">
             <div className="bg-white p-6 shadow-lg w-3/4 max-w-3xl max-h-[80vh] overflow-y-auto relative rounded-lg">
                 <div className="flex justify-between items-center mb-4">
                     <FontAwesomeIcon icon={faLink} size="2x" className="text-green-500" />

@@ -107,7 +107,7 @@ const Content = () => {
                                                 </div>
                                             </td>
                                         ) : colIndex === 1 ? (
-                                            <td key={colIndex} className="w-[300px] px-4 py-2 text-center sticky left-[100px] bg-slate-100 z-10">
+                                            <td key={colIndex} className="w-[300px] px-4 py-2 text-center left-[100px] bg-slate-100 z-10">
                                                 <Filters rowIndex={rowIndex} colIndex={colIndex} table={table} setTable={setTable}/>
                                             </td>
                                         ) : (
